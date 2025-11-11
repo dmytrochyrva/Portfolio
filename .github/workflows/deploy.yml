@@ -1,0 +1,43 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SERVER_NAME: dmytrochyrva.com
+      ARTIFACT_DIRECTORY: ./dist/Portfolio/browser
+      NODE_VERSION: 24.11.1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Portfolio
+        run: npm run build --prod
+
+      - name: Add SSH private key to the agent
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ env.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Set up known hosts
+        run: ssh-keyscan -H ${{ env.SERVER_NAME }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to server via SSH
+        run: scp -r ${{ env.ARTIFACT_DIRECTORY }}/* dchyrva@${{ env.SERVER_NAME }}:/var/www/dmytrochyrva.com

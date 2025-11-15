@@ -1,0 +1,38 @@
+.picture {
+  width: 100%;
+  -webkit-user-drag: none;
+  border: 0.75rem solid var(--bs-orange);
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (min-width: 0px) {
+  .picture {
+    border-width: 0.5rem;
+  }
+
+  :host h2 {
+    margin: 0;
+  }
+
+  :host p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (min-width: 576px) {
+  .picture {
+    border-width: 0.75rem;
+  }
+
+  :host p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

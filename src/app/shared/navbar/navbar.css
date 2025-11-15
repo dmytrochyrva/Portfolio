@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  background-color: var(--bs-dark);
+  box-shadow: 4px 4px 10px 0 var(--bs-black);
+  z-index: 10;
+}
+
+a {
+  color: var(--bs-white);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a.active {
+  color: var(--bs-orange);
+}
+
+@media (min-width: 0px) {
+  :host {
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  :host {
+    gap: 1rem;
+    width: fit-content;
+    border-radius: 0 0 1rem 1rem;
+  }
+}

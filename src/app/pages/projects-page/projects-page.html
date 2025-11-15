@@ -1,0 +1,23 @@
+<section class="container d-flex align-items-center h-100 position-relative">
+  <button
+    class="btn btn-link btn-left position-absolute d-none d-md-block"
+    (click)="container.scrollTo(-container.clientWidth, 0)"
+  >
+    <img src="LEFT_ARROW.svg" alt="" />
+  </button>
+
+  <div #container class="carusel overflow-hidden">
+    <div class="d-flex w-100">
+      @for (project of projects; track project.id) {
+      <app-project-panel [project]="project" class="w-100 flex-shrink-0"></app-project-panel>
+      }
+    </div>
+  </div>
+
+  <button
+    class="btn btn-link btn-right position-absolute d-none d-md-block"
+    (click)="container.scrollTo(container.clientWidth, 0)"
+  >
+    <img src="RIGHT_ARROW.svg" alt="" />
+  </button>
+</section>

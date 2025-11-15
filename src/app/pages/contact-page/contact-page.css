@@ -1,0 +1,19 @@
+form {
+  width: 400px;
+}
+
+.btn-primary {
+  border-color: var(--bs-orange);
+  background-color: var(--bs-orange);
+}
+
+.btn-primary:hover {
+  filter: brightness(90%);
+  border-color: var(--bs-orange);
+  background-color: var(--bs-orange);
+}
+
+img {
+  min-width: 200px;
+  max-width: 500px;
+}

@@ -1,0 +1,52 @@
+img {
+  width: 100%;
+}
+
+iframe {
+  position: absolute;
+  width: 75.5%;
+  height: 90.8%;
+  left: 12.3%;
+  top: 1.8%;
+  border-radius: 4%;
+  z-index: 1;
+}
+
+.loading {
+  position: absolute;
+  width: 75.5%;
+  height: 90.8%;
+  left: 12.3%;
+  top: 1.8%;
+  border-radius: 4%;
+  z-index: 2;
+  gap: 5%;
+}
+
+.loading > img {
+  display: block;
+  width: 10%;
+}
+
+.loading > .progress {
+  width: 25%;
+  height: 1%;
+  background-color: var(--bs-dark);
+  border-radius: none;
+}
+
+.loading > .progress > .progress-bar {
+  height: 100%;
+  background-color: var(--bs-white);
+  animation-name: loading;
+  animation-duration: 4s;
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

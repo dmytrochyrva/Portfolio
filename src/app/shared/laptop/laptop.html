@@ -1,0 +1,14 @@
+<div class="position-relative">
+  <img src="LAPTOP.png" alt="Laptop Image" />
+  <iframe [src]="src" (load)="onLoaded()"></iframe>
+
+  @if(isLoading){
+  <div class="d-flex flex-column justify-content-center align-items-center bg-black loading">
+    <img src="APPLE_LOGO.png" alt="" />
+
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+  }
+</div>

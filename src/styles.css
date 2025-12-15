@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --bs-orange: #fb4c2f;
+}
+
+body,
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background: linear-gradient(to bottom right, #080808, #080808, #232323);
+}
+
+.shadow {
+  box-shadow: 2px 4px 16px -5px var(--bs-black) !important;
+}
+
+.text-orange {
+  color: var(--bs-orange);
+}
+
+.text-purple {
+  color: var(--bs-purple);
+}
